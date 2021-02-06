@@ -1,4 +1,5 @@
 const express = require('express');
+const { check } = require('express-validator');
 const usersRepo = require('../../repositories/users');
 const signupTemplate = require('../../views/admin/auth/signup');
 const signinTemplate = require('../../views/admin/auth/signin');
@@ -14,7 +15,11 @@ router.get('/signup', (req, res) => {
     res.send(signupTemplate({ req }));
 });
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', [
+    check('email'),
+    check('password'),
+    check('passwordConfirmation')
+    ], async (req, res) => {
 
     const { email, password, passwordConfirmation } = req.body;
 
