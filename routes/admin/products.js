@@ -1,5 +1,7 @@
 const express = require('express')
 const { validationResult } = require('express-validator');
+const multer = require('multer');
+
 const productsRepo = require('../../repositories/products');
 const productsNewTemplate = require('../../views/admin/products/new');
 const { requireTitle, requirePrice } = require('./validators');
@@ -16,7 +18,11 @@ router.get('/admin/products/new', (req, res) => {
 
 router.post('/admin/products/new', [requireTitle, requirePrice], (req, res) => {
     const errors = validationResult(req);
-    console.log(errors)
+
+
+    req.on('data', data => {
+        console.log(data.toString())
+    })
     res.send('submitted');
 })
 
