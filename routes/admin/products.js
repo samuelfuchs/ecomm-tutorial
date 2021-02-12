@@ -21,10 +21,12 @@ router.post(
     '/admin/products/new', 
     [requireTitle, requirePrice], 
     upload.single('image'), 
-    (req, res) => {
+    async (req, res) => {
         const errors = validationResult(req);
 
-        console.log(req.file);
+        const image = req.file.buffer.toString('base64');
+        const { title, price } = req.body;
+        await productsRepo.create({ title, price, image });
 
     res.send('submitted');
 })
