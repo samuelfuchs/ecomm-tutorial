@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "title": "asdf",
+        "price": 10,
+        "image": "asldfalsdfasdf",
+        "id":"292929292"
+    },
+    {
+        "title": "A nice coat",
+        "price": 20,
+        "image": "aslasdfasddfalsdfasdf",
+        "id":"2929sss29292"
+    }
+]
