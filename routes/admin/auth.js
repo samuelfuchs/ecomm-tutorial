@@ -24,7 +24,7 @@ router.get('/signup', (req, res) => {
 router.post(
     '/signup', 
     [requireEmail, requirePassword, requirePasswordConfirmation], 
-    handleErrors(signupTemplate);
+    handleErrors(signupTemplate),
     async (req, res) => {
         const { email, password } = req.body;
 
@@ -48,7 +48,7 @@ router.get('/signin', (req, res) => {
 
 router.post('/signin', 
     [requireEmailExist, requireValidPasswordForUser], 
-    handleErrors(signinTemplate);
+    handleErrors(signinTemplate),
     async (req, res) => {
         const { email } = req.body;
 
