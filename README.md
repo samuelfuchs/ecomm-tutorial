@@ -7,3 +7,5 @@ An simple ecommerce application using Node.js with express.
 
 
 i liked doing this project
+
+Mais alteracoes foram feitas
